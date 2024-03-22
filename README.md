@@ -9,7 +9,7 @@
 
 A [pre-commit](https://pre-commit.com/) hook for [uv](https://github.com/astral-sh/uv).
 
-Distributed as a standalone repository to enable installing Ruff via prebuilt wheels from
+Distributed as a standalone repository to enable installing uv via prebuilt wheels from
 [PyPI](https://pypi.org/project/uv/).
 
 ### Using uv with pre-commit
