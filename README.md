@@ -14,7 +14,7 @@ Distributed as a standalone repository to enable installing uv via prebuilt whee
 
 ### Using uv with pre-commit
 
-To run uv's compile via pre-commit, add the following to your `.pre-commit-config.yaml`:
+To compile your requirements via pre-commit, add the following to your `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
