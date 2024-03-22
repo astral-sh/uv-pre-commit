@@ -1,0 +1,11 @@
+- id: pip-compile
+  name: pip-compile
+  description: "Automatically run 'uv pip compile' on your requirements"
+  entry: uv pip compile
+  language: python
+  files: ^requirements\.(in|txt)$
+  args: []
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"
+
