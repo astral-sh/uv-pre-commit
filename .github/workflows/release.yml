@@ -1,0 +1,17 @@
+name: Releases
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ncipollo/release-action@v1.14.0
+      with:
+        body: "See: https://github.com/astral-sh/uv/releases/tag/${{ github.ref_name }}"
