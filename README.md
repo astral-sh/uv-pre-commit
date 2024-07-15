@@ -26,6 +26,18 @@ To compile your requirements via pre-commit, add the following to your `.pre-com
       args: [requirements.in, -o, requirements.txt]
 ```
 
+Or alternatively with pyproject.toml add the following to your `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.2.24
+  hooks:
+    # Run the pip compile
+    - id: pip-compile
+      args: [pyproject.toml, -o, requirements.txt]
+```
+
 To compile alternative files, modify the `args` and `files`:
 
 ```yaml
@@ -54,6 +66,26 @@ To run the hook over multiple files at the same time:
       name: pip-compile requirements-dev.in
       args: [requirements-dev.in, -o, requirements-dev.txt]
       files: ^requirements-dev\.(in|txt)$
+```
+
+To run the hook over a private registry, such as aws codeartifact (do note, specify files here to enusre unneccessary calls to authenticate to the private registry are not run on commits which do not modify the pyproject.toml/requirements):
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.2.24
+  hooks:
+    # Run the pip compile
+    - id: pip-compile
+      name: pip-compile
+      entry: bash -c 'exec env UV_EXTRA_INDEX_URL="https://aws:$(aws codeartifact get-authorization-token --domain my_domain --domain-owner 111122223333 --query authorizationToken --output text)@my_domain-111122223333.d.codeartifact.region.amazonaws.com/pypi/my_repo/simple/" bash -c "env | grep UV_EXTRA_INDEX_URL"'
+      args: [pyproject.toml, -o, requirements.txt]
+      files: pyproject.toml
+    - id: pip-compile
+      name: pip-compile dev
+      entry: bash -c 'exec env UV_EXTRA_INDEX_URL="https://aws:$(aws codeartifact get-authorization-token --domain my_domain --domain-owner 111122223333 --query authorizationToken --output text)@my_domain-111122223333.d.codeartifact.region.amazonaws.com/pypi/my_repo/simple/" bash -c "env | grep UV_EXTRA_INDEX_URL"'
+      args: [pyproject.toml, --extra, dev, -o, requirements-dev.txt]
+      files: pyproject.toml
 ```
 
 ## License
