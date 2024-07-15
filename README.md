@@ -19,7 +19,7 @@ To compile your requirements via pre-commit, add the following to your `.pre-com
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.2.18
+  rev: 0.2.19
   hooks:
     # Run the pip compile
     - id: pip-compile
@@ -31,7 +31,7 @@ To compile alternative files, modify the `args` and `files`:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.2.18
+  rev: 0.2.19
   hooks:
     # Run the pip compile
     - id: pip-compile
@@ -44,7 +44,7 @@ To run the hook over multiple files at the same time:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.2.18
+  rev: 0.2.19
   hooks:
     # Run the pip compile
     - id: pip-compile
