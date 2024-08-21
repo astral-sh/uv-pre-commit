@@ -8,4 +8,13 @@
   pass_filenames: false
   additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"
-
+- id: uv-lock
+  name: uv-lock
+  description: "Automatically run 'uv lock' on your project dependencies"
+  entry: uv lock
+  language: python
+  files: ^(requirements\.(in|txt)|pyproject\.toml|uv\.toml)$
+  args: []
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"

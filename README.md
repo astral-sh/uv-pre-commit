@@ -56,6 +56,20 @@ To run the hook over multiple files at the same time:
       files: ^requirements-dev\.(in|txt)$
 ```
 
+To check if the the lockfile is consistent with your dependencies (either with compiled requirements or toml):
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.3.0
+  hooks:
+    # Run the uv lock
+    - id: uv-lock
+      name: uv-lock
+      entry: uv lock
+      args: [--locked]
+```
+
 ## License
 
 uv-pre-commit is licensed under either of
