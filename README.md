@@ -63,11 +63,11 @@ To check if the the lockfile is consistent with your dependencies (either with c
   # uv version.
   rev: 0.3.0
   hooks:
-    # Run the uv lock
+    # Update the uv lockfile
     - id: uv-lock
       name: uv-lock
       entry: uv lock
-      args: [--locked]
+      args: []
 ```
 
 ## License

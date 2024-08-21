@@ -13,7 +13,7 @@
   description: "Automatically run 'uv lock' on your project dependencies"
   entry: uv lock
   language: python
-  files: ^(requirements\.(in|txt)|pyproject\.toml|uv\.toml)$
+  files: ^uv.lock$
   args: []
   pass_filenames: false
   additional_dependencies: []
