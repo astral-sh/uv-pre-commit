@@ -65,9 +65,6 @@ To check if the the lockfile is consistent with your dependencies (either with c
   hooks:
     # Update the uv lockfile
     - id: uv-lock
-      name: uv-lock
-      entry: uv lock
-      args: []
 ```
 
 ## License
