@@ -56,7 +56,7 @@ To run the hook over multiple files at the same time:
       files: ^requirements-dev\.(in|txt)$
 ```
 
-To check if the the lockfile is consistent with your dependencies (either with compiled requirements or toml):
+To ensure the lockfile is up-to-date:
 
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
