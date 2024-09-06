@@ -67,6 +67,20 @@ To ensure the lockfile is up-to-date:
     - id: uv-lock
 ```
 
+To autoexport `uv.lock` to `requirements.txt`:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.4.7
+  hooks:
+    # Update the requirements.txt file
+    - id: uv-export
+    # ... or supply a custom file to update:
+    - id: uv-export
+      args: ["--frozen", "--output-file=requirements-custom.txt", "--no-emit-project"]
+```
+
 ## License
 
 uv-pre-commit is licensed under either of
