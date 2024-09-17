@@ -74,9 +74,16 @@ To autoexport `uv.lock` to `requirements.txt`:
   # uv version.
   rev: 0.4.7
   hooks:
-    # Update the requirements.txt file
     - id: uv-export
-    # ... or supply a custom file to update:
+```
+
+To supply a custom file for exporting the requirements:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.4.7
+  hooks:
     - id: uv-export
       args: ["--frozen", "--output-file=requirements-custom.txt", "--no-emit-project"]
 ```
