@@ -72,7 +72,7 @@ To autoexport `uv.lock` to `requirements.txt`:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.4.7
+  rev: 0.4.10
   hooks:
     - id: uv-export
 ```
@@ -82,7 +82,7 @@ To supply a custom file for exporting the requirements:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.4.7
+  rev: 0.4.10
   hooks:
     - id: uv-export
       args: ["--frozen", "--output-file=requirements-custom.txt", "--no-emit-project"]
