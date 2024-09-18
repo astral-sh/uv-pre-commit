@@ -18,3 +18,13 @@
   pass_filenames: false
   additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"
+- id: uv-export
+  name: uv-export
+  description: "Automatically run 'uv export' on your project dependencies"
+  entry: uv export
+  language: python
+  files: ^uv\.lock$
+  args: ["--frozen", "--output-file=requirements.txt"]
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"
