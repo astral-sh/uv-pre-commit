@@ -28,3 +28,12 @@
   pass_filenames: false
   additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"
+- id: uv-sync
+  name: uv-sync
+  description: "Automatically run 'uv sync' post merge or checkout"
+  entry: uv sync
+  args: ["--locked"]
+  language: python
+  pass_filenames: false
+  stages: [post-checkout, post-merge]
+  always_run: true
