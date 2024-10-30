@@ -88,6 +88,18 @@ To export to an alternative file, modify the `args`:
       args: ["--frozen", "--output-file=requirements-custom.txt"]
 ```
 
+To make sure all locked packages are installed:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.4.28
+  hooks:
+    - id: uv-sync
+```
+In order to install this hook, you either need to specify `default_install_hook_types`, or you have
+to install it via `pre-commit install --install-hooks -t post-checkout -t post-merge`.
+
 ## License
 
 uv-pre-commit is licensed under either of
