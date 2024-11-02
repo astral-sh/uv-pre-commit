@@ -88,6 +88,42 @@ To export to an alternative file, modify the `args`:
       args: ["--frozen", "--output-file=requirements-custom.txt"]
 ```
 
+To synchronize your dependencies upon branch checkout or pull:
+
+```yaml
+default_install_hook_types:
+  - pre-commit
+  - post-checkout
+  - post-merge
+  - post-rewrite
+default_stages:
+  - pre-commit
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.1
+  hooks:
+    - id: uv-sync
+```
+
+To synchronize all dependencies in a workspace.
+The hook assumes the lock file is properly generated and will not look up for nested files. 
+
+```yaml
+default_install_hook_types:
+  - pre-commit
+  - post-checkout
+  - post-merge
+  - post-rewrite
+default_stages:
+  - pre-commit
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.1
+  hooks:
+    - id: uv-sync
+      args: ["--frozen,"--all-packages"]
+```
+
 ## License
 
 uv-pre-commit is licensed under either of

@@ -1,9 +1,17 @@
 [project]
 name = "uv-pre-commit"
 version = "0.0.0"
+requires-python = ">=3.11"
 dependencies = [
     "uv==0.5.1",
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+uv-sync-hook = "hooks:uvsync.main"
 
 [project.optional-dependencies]
 dev = [
