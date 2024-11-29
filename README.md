@@ -89,18 +89,32 @@ To run the hook over multiple files at the same time:
       files: ^requirements-dev\.(in|txt)$
 ```
 
-To make sure all locked packages are installed:
+To synchronize your dependencies upon branch checkout, pull or rebase:
+```yaml
+default_install_hook_types:
+  - pre-commit
+  - post-checkout
+  - post-merge
+  - post-rewrite
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.5.9
+    hooks:
+      - id: uv-sync
+```
+In order to install this hook, you either need to specify `default_install_hook_types` (as above) and run `pre-commit install`, 
+or you have to install it via `pre-commit install --install-hooks -t post-checkout -t post-merge -t post-rewrite`.
 
+To synchronize all dependencies in a workspace:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.4.28
+  rev: 0.5.9
   hooks:
     - id: uv-sync
+      args: ["--locked", "--all-packages"]
 ```
-In order to install this hook, you either need to specify `default_install_hook_types`, or you have
-to install it via `pre-commit install --install-hooks -t post-checkout -t post-merge`.
-
 ## License
 
 uv-pre-commit is licensed under either of
