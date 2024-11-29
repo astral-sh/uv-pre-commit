@@ -30,10 +30,11 @@
   minimum_pre_commit_version: "2.9.2"
 - id: uv-sync
   name: uv-sync
-  description: "Automatically run 'uv sync' post merge or checkout"
+  description: "Automatically run 'uv sync' on your repository after a checkout, pull or rebase"
   entry: uv sync
   args: ["--locked"]
   language: python
-  pass_filenames: false
-  stages: [post-checkout, post-merge]
   always_run: true
+  pass_filenames: false
+  stages: [post-checkout, post-merge, post-rewrite]
+  minimum_pre_commit_version: "2.9.2"
