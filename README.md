@@ -14,6 +14,39 @@ Distributed as a standalone repository to enable installing uv via prebuilt whee
 
 ### Using uv with pre-commit
 
+
+To ensure the lockfile is up-to-date:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.8
+  hooks:
+    # Update the uv lockfile
+    - id: uv-lock
+```
+
+To autoexport `uv.lock` to `requirements.txt`:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.8
+  hooks:
+    - id: uv-export
+```
+
+To export to an alternative file, modify the `args`:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.8
+  hooks:
+    - id: uv-export
+      args: ["--frozen", "--output-file=requirements-custom.txt"]
+```
+
 To compile your requirements via pre-commit, add the following to your `.pre-commit-config.yaml`:
 
 ```yaml
@@ -54,38 +87,6 @@ To run the hook over multiple files at the same time:
       name: pip-compile requirements-dev.in
       args: [requirements-dev.in, -o, requirements-dev.txt]
       files: ^requirements-dev\.(in|txt)$
-```
-
-To ensure the lockfile is up-to-date:
-
-```yaml
-- repo: https://github.com/astral-sh/uv-pre-commit
-  # uv version.
-  rev: 0.5.8
-  hooks:
-    # Update the uv lockfile
-    - id: uv-lock
-```
-
-To autoexport `uv.lock` to `requirements.txt`:
-
-```yaml
-- repo: https://github.com/astral-sh/uv-pre-commit
-  # uv version.
-  rev: 0.5.8
-  hooks:
-    - id: uv-export
-```
-
-To export to an alternative file, modify the `args`:
-
-```yaml
-- repo: https://github.com/astral-sh/uv-pre-commit
-  # uv version.
-  rev: 0.5.8
-  hooks:
-    - id: uv-export
-      args: ["--frozen", "--output-file=requirements-custom.txt"]
 ```
 
 ## License
