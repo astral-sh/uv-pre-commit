@@ -108,6 +108,17 @@ repos:
 In order to install this hook, you either need to specify `default_install_hook_types` (as above) and run `pre-commit install`, 
 or you have to install it via `pre-commit install --install-hooks -t post-checkout -t post-merge -t post-rewrite`.
 
+If you use keyring to authenticate to a private index:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.12
+  hooks:
+    - id: uv-sync
+      additional_dependencies: [keyring]
+```
+
 To synchronize all dependencies in a workspace:
 
 ```yaml
