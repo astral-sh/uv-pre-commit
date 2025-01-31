@@ -8,6 +8,15 @@
   pass_filenames: false
   additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"
+- id: uv-run
+  name: uv-run
+  description: "Execute your scripts and tools with 'uv run'"
+  entry: uv run
+  language: python
+  args: []
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"
 - id: uv-lock
   name: uv-lock
   description: "Automatically run 'uv lock' on your project dependencies"
