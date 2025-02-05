@@ -2,7 +2,7 @@
 name = "uv-pre-commit"
 version = "0.0.0"
 dependencies = [
-    "uv==0.5.27",
+    "uv==0.5.28",
 ]
 
 [project.optional-dependencies]
