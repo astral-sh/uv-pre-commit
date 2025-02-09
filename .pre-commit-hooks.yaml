@@ -11,7 +11,7 @@
 - id: uv-run
   name: uv-run
   description: "Execute your scripts and tools with 'uv run'"
-  entry: uv run
+  entry: uv run --no-active
   language: python
   args: []
   pass_filenames: false
