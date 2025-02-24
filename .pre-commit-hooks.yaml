@@ -31,7 +31,7 @@
 - id: uv-sync
   name: uv-sync
   description: "Automatically run 'uv sync' on your repository after a checkout, pull or rebase"
-  entry: uv sync
+  entry: uv sync --no-active
   args: ["--locked"]
   language: python
   always_run: true
