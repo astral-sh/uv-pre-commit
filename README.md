@@ -89,6 +89,20 @@ To run the hook over multiple files at the same time:
       files: ^requirements-dev\.(in|txt)$
 ```
 
+To run a hook on a project within a subdirectory (e.g. monorepo):
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.5.18
+  hooks:
+    # Update the uv lockfile
+    - id: uv-lock
+      # Change <path/to/project> to your relative path
+      files: <path/to/project>/pyproject.toml
+      args: [--project, <path/to/project>]
+```
+
 To synchronize your dependencies upon branch checkout, pull or rebase:
 
 ```yaml
