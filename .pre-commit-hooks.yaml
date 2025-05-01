@@ -38,3 +38,13 @@
   pass_filenames: false
   stages: [post-checkout, post-merge, post-rewrite]
   minimum_pre_commit_version: "2.9.2"
+- id: uv-pip-sync
+  name: uv-pip-sync
+  entry: uv pip sync
+  description: "Automatically run 'uv pip sync' on your repository after a checkout, pull or rebase"
+  args: ["requirements.txt"]
+  language: python
+  always_run: true
+  pass_filenames: false
+  stages: [post-checkout, post-merge, post-rewrite]
+  minimum_pre_commit_version: "2.9.2"
