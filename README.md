@@ -145,6 +145,20 @@ include it as an additional sync dependency:
       additional_dependencies: [keyring]
 ```
 
+To run an arbitrary script using `uv run`, (e.g., one using [inline script
+metadata](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#inline-script-metadata)):
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.7.13
+  hooks:
+    - id: uv-run
+      args: ["--script", "path/to/script.py"]
+      files: file-pattern-script-depends-on
+```
+
+
 ## License
 
 uv-pre-commit is licensed under either of
