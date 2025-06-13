@@ -41,10 +41,10 @@
 - id: uv-run
   name: uv-run
   description: "Automatically run 'uv run'"
-  entry: uv run
+  entry: uv run --no-active
   args: []
   language: python
-  args: []
+  pass_filenames: false
   additioinal_dependencies: []
   minimum_pre_commit_version: "2.9.2"
 
