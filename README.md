@@ -151,7 +151,7 @@ metadata](https://packaging.python.org/en/latest/specifications/inline-script-me
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.7.13
+  rev: 0.7.15
   hooks:
     - id: uv-run
       args: ["--script", "path/to/script.py"]
