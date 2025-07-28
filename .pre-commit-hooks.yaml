@@ -45,7 +45,7 @@
   args: []
   language: python
   pass_filenames: false
-  additioinal_dependencies: []
+  additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"
 
 
