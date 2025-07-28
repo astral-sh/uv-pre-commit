@@ -38,3 +38,14 @@
   pass_filenames: false
   stages: [post-checkout, post-merge, post-rewrite]
   minimum_pre_commit_version: "2.9.2"
+- id: uv-run
+  name: uv-run
+  description: "Automatically run scripts with 'uv run'"
+  entry: uv run --no-active
+  args: []
+  language: python
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"
+
+
