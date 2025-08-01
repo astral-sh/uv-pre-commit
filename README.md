@@ -36,7 +36,7 @@ To autoexport `uv.lock` to `requirements.txt`:
     - id: uv-export
 ```
 
-By default, this will use the ["quiet" output](https://docs.astral.sh/uv/reference/cli/#uv-export--quiet).
+By default, this hook uses the ["quiet" output](https://docs.astral.sh/uv/reference/cli/#uv-export--quiet).
 
 To export to an alternative file, modify the `args`:
 
