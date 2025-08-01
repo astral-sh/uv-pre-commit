@@ -24,7 +24,7 @@
   entry: uv export
   language: python
   files: ^uv\.lock$
-  args: ["--frozen", "--output-file=requirements.txt"]
+  args: ["--frozen", "--output-file=requirements.txt", "--quiet"]
   pass_filenames: false
   additional_dependencies: []
   minimum_pre_commit_version: "2.9.2"

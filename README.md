@@ -36,6 +36,8 @@ To autoexport `uv.lock` to `requirements.txt`:
     - id: uv-export
 ```
 
+By default, this hook uses the ["quiet" output](https://docs.astral.sh/uv/reference/cli/#uv-export--quiet).
+
 To export to an alternative file, modify the `args`:
 
 ```yaml
@@ -44,7 +46,7 @@ To export to an alternative file, modify the `args`:
   rev: 0.8.4
   hooks:
     - id: uv-export
-      args: ["--frozen", "--output-file=requirements-custom.txt"]
+      args: ["--frozen", "--output-file=requirements-custom.txt", "--quiet"]
 ```
 
 To compile your requirements via pre-commit, add the following to your `.pre-commit-config.yaml`:
