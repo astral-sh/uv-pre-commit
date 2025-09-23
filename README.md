@@ -20,7 +20,7 @@ To ensure the lockfile is up-to-date:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     # Update the uv lockfile
     - id: uv-lock
@@ -31,7 +31,7 @@ To autoexport `uv.lock` to `requirements.txt`:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     - id: uv-export
 ```
@@ -43,7 +43,7 @@ To export to an alternative file, modify the `args`:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     - id: uv-export
       args: ["--frozen", "--output-file=requirements-custom.txt", "--quiet"]
@@ -54,7 +54,7 @@ To compile your requirements via pre-commit, add the following to your `.pre-com
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     # Run the pip compile
     - id: pip-compile
@@ -66,7 +66,7 @@ To compile alternative files, modify the `args` and `files`:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     # Run the pip compile
     - id: pip-compile
@@ -79,7 +79,7 @@ To run the hook over multiple files at the same time:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     # Run the pip compile
     - id: pip-compile
@@ -96,7 +96,7 @@ To run a hook on a project within a subdirectory (i.e., in a monorepo):
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     # Update the uv lockfile
     - id: uv-lock
@@ -116,7 +116,7 @@ default_install_hook_types:
 repos:
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.
-    rev: 0.8.20
+    rev: 0.8.21
     hooks:
       - id: uv-sync
 ```
@@ -129,7 +129,7 @@ To synchronize all dependencies in a workspace:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     - id: uv-sync
       args: ["--locked", "--all-packages"]
@@ -141,7 +141,7 @@ include it as an additional sync dependency:
 ```yaml
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
-  rev: 0.8.20
+  rev: 0.8.21
   hooks:
     - id: uv-sync
       additional_dependencies: [keyring]
