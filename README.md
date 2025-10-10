@@ -108,17 +108,19 @@ To run a hook on a project within a subdirectory (i.e., in a monorepo):
 To synchronize your dependencies upon branch checkout, pull or rebase:
 
 ```yaml
-default_install_hook_types:
-  - pre-commit
-  - post-checkout
-  - post-merge
-  - post-rewrite
 repos:
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.
     rev: 0.9.1
     hooks:
       - id: uv-sync
+        stages:
+          - post-checkout
+          - post-merge
+          - post-rewrite
+          # ... any other stages you'd like e.g.
+          # - manual
+          # - pre-commit
 ```
 
 In order to install this hook, you either need to specify `default_install_hook_types` (as above) and run `pre-commit install`, 
