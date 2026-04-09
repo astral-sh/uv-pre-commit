@@ -38,3 +38,13 @@
   pass_filenames: false
   stages: [post-checkout, post-merge, post-rewrite]
   minimum_pre_commit_version: "2.9.2"
+- id: uv-audit
+  name: uv-audit
+  description: "Automatically run 'uv audit' on your project dependencies"
+  entry: uv audit
+  language: python
+  files: ^(uv\.lock|pyproject\.toml|uv\.toml)$
+  args: []
+  pass_filenames: false
+  additional_dependencies: []
+  minimum_pre_commit_version: "2.9.2"
