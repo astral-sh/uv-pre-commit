@@ -3,8 +3,6 @@ on:
   schedule:
     - cron: "0 */4 * * *"
   workflow_dispatch:
-  repository_dispatch:
-    types: [pypi_release]
 
 jobs:
   build:
@@ -13,9 +11,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - if: ${{ startsWith(github.event_name, 'repository_dispatch') }}
-        run: sleep 30
-
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: true # needed to push commits below
@@ -41,10 +36,10 @@ jobs:
           UNPUSHED_COMMITS=$(git log origin/main..HEAD)
           if [ -z "$UNPUSHED_COMMITS" ]; then
             echo "No unpushed commits found."
-            echo "changes_exist=false" >> $GITHUB_ENV
+            echo "changes_exist=false" >> "$GITHUB_ENV"
           else
             echo "Unpushed commits found."
-            echo "changes_exist=true" >> $GITHUB_ENV
+            echo "changes_exist=true" >> "$GITHUB_ENV"
           fi
 
       - name: push changes if they exist
@@ -56,8 +51,8 @@ jobs:
       - name: create release on new tag if new changes exist
         if: env.changes_exist == 'true'
         run: |
-          TAG_NAME=$(git describe --tags $(git rev-list --tags --max-count=1))
-          echo $TAG_NAME
+          TAG_NAME=$(git describe --tags "$(git rev-list --tags --max-count=1)")
+          echo "$TAG_NAME"
           gh release create "$TAG_NAME" \
             --title "$TAG_NAME" \
             --notes "See: https://github.com/astral-sh/uv/releases/tag/$TAG_NAME" \
