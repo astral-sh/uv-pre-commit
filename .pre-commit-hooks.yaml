@@ -23,7 +23,7 @@
   description: "Automatically run 'uv export' on your project dependencies"
   entry: uv export
   language: python
-  files: ^uv\.lock$
+  files: ^(uv\.lock|pyproject\.toml|uv\.toml)$
   args: ["--frozen", "--output-file=requirements.txt", "--quiet"]
   pass_filenames: false
   additional_dependencies: []
