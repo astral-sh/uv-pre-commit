@@ -21,8 +21,8 @@ def main():
         paths = process_version(version)
         if subprocess.check_output(["git", "status", "-s"]).strip():
             subprocess.run(["git", "add", *paths], check=True)
-            subprocess.run(["git", "commit", "-m", f"Mirror: {version}"], check=True)
-            subprocess.run(["git", "tag", f"{version}"], check=True)
+            subprocess.run(["git", "commit", "-m", f"Mirror: v{version}"], check=True)
+            subprocess.run(["git", "tag", f"v{version}"], check=True)
         else:
             print(f"No change {version}")
 
@@ -54,8 +54,8 @@ def process_version(version: Version) -> typing.Sequence[str]:
         return re.sub(r'"uv==.*"', f'"uv=={version}"', content)
 
     def replace_readme_md(content: str) -> str:
-        content = re.sub(r"rev: \d+\.\d+\.\d+", f"rev: {version}", content)
-        return re.sub(r"/uv/\d+\.\d+\.\d+\.svg", f"/uv/{version}.svg", content)
+        content = re.sub(r"rev: v?\d+\.\d+\.\d+", f"rev: v{version}", content)
+        return re.sub(r"/uv/v?\d+\.\d+\.\d+\.svg", f"/uv/v{version}.svg", content)
 
     paths = {
         "pyproject.toml": replace_pyproject_toml,
