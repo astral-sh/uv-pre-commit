@@ -147,7 +147,33 @@ include it as an additional sync dependency:
       additional_dependencies: [keyring]
 ```
 
+To export `uv.lock` to `requirements.txt` **without interrupting the commit**:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.11.29
+  hooks:
+    - id: uv-update-requirements
+```
+
+Unlike `uv-export`, this hook automatically stages the generated `requirements.txt`
+so that pre-commit does not abort the commit with a *"files were modified by this hook"*
+error requiring a second `git commit`.
+
+To export to a custom file, override the `args`:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.11.29
+  hooks:
+    - id: uv-update-requirements
+      args: ["--frozen", "--output-file=requirements-prod.txt", "--quiet"]
+```
+
 ## License
+
 
 uv-pre-commit is licensed under either of
 
