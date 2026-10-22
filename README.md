@@ -147,6 +147,18 @@ include it as an additional sync dependency:
       additional_dependencies: [keyring]
 ```
 
+To audit your project's dependencies for known vulnerabilities:
+
+```yaml
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.11.15
+  hooks:
+    - id: uv-audit
+```
+
+`uv audit` is experimental and may change in future uv releases.
+
 ## License
 
 uv-pre-commit is licensed under either of
